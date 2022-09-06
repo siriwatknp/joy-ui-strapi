@@ -1,0 +1,42 @@
+name: Main
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  test-build-publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+
+      - uses: c-hive/gha-yarn-cache@v1
+
+      - uses: actions/setup-node@v1
+        with:
+          node-version: '14'
+          registry-url: 'https://registry.npmjs.org'
+
+      - name: Install dependencies
+        run: yarn
+
+      - name: Run unit-tests
+        run: yarn test
+
+      - name: Build storybook
+        run: yarn build:storybook
+      - name: Deploy Storybook 🚀
+        uses: JamesIves/github-pages-deploy-action@3.7.1
+        with:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          BRANCH: gh-pages # The branch the action should deploy to.
+          FOLDER: storybook-static # The folder that the build-storybook script generates files.
+          CLEAN: true # Automatically remove deleted files from the deploy branch
+      - name: Publish storybook to Chromatic
+        uses: chromaui/action@v1
+        # Chromatic GitHub Action options
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          # 👇 Chromatic projectToken, refer to the manage page to obtain it.
+          projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
+          storybookBuildDir: storybook-static
