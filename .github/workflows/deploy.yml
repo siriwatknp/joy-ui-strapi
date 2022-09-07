@@ -8,7 +8,7 @@ jobs:
   test-build-publish:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
 
       - uses: c-hive/gha-yarn-cache@v1
 
@@ -23,14 +23,14 @@ jobs:
         run: yarn test
 
       - name: Build storybook
-        run: yarn build:storybook
+        run: yarn build-storybook
       - name: Deploy Storybook 🚀
-        uses: JamesIves/github-pages-deploy-action@3.7.1
+        uses: JamesIves/github-pages-deploy-action@v4
         with:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          BRANCH: docs # The branch the action should deploy to.
-          FOLDER: storybook-static # The folder that the build-storybook script generates files.
-          CLEAN: true # Automatically remove deleted files from the deploy branch
+          token: ${{ secrets.GITHUB_TOKEN }}
+          branch: docs # The branch the action should deploy to.
+          folder: storybook-static # The folder that the build-storybook script generates files.
+          clean: true # Automatically remove deleted files from the deploy branch
       - name: Publish storybook to Chromatic
         uses: chromaui/action@v1
         # Chromatic GitHub Action options
