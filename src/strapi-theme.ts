@@ -3,6 +3,7 @@ import { createGetCssVar, extendTheme } from '@mui/joy/styles';
 import { checkboxClasses } from '@mui/joy/Checkbox';
 import { buttonClasses } from '@mui/joy/Button';
 import { iconButtonClasses } from '@mui/joy/IconButton';
+import { linkClasses } from '@mui/joy/Link';
 
 declare module '@mui/joy/styles' {
   interface PaletteRange {
@@ -73,19 +74,19 @@ const strapiTheme = extendTheme({
           500: '#7B79FF',
           200: '#D9D8FF',
           100: '#F0F0FF',
-          softColor: getCssVar('palette-primary-600'),
-          softActiveBg: getCssVar('palette-primary-200'),
+          mainChannel: '73 69 255',
           solidBg: getCssVar('palette-primary-600'),
           solidHoverBg: getCssVar('palette-primary-500'),
           solidActiveBg: getCssVar('palette-primary-700'),
-          outlinedColor: getCssVar('palette-primary-600'),
-          outlinedBorder: getCssVar('palette-primary-200'),
-          outlinedBg: getCssVar('palette-primary-100'),
-          outlinedHoverBorder: getCssVar('palette-primary-200'),
-          outlinedHoverBg: getCssVar('palette-neutral-0'),
-          outlinedActiveColor: getCssVar('palette-primary-700'),
-          outlinedActiveBg: getCssVar('palette-neutral-0'),
-          outlinedDisabledColor: getCssVar('palette-neutral-600'),
+          softColor: getCssVar('palette-primary-600'),
+          softBorder: getCssVar('palette-primary-200'),
+          softBg: getCssVar('palette-primary-100'),
+          softHoverBorder: getCssVar('palette-primary-200'),
+          softHoverBg: getCssVar('palette-neutral-0'),
+          softActiveColor: getCssVar('palette-primary-700'),
+          softActiveBg: getCssVar('palette-neutral-0'),
+          softActiveBorder: getCssVar('palette-primary-700'),
+          softDisabledColor: getCssVar('palette-neutral-600'),
         },
         success: {
           700: '#2F6846',
@@ -96,13 +97,14 @@ const strapiTheme = extendTheme({
           solidBg: getCssVar('palette-success-600'),
           solidHoverBg: getCssVar('palette-success-500'),
           solidActiveBg: getCssVar('palette-success-700'),
-          outlinedColor: getCssVar('palette-success-600'),
-          outlinedBorder: getCssVar('palette-success-200'),
-          outlinedBg: getCssVar('palette-success-100'),
-          outlinedHoverBorder: getCssVar('palette-success-200'),
-          outlinedHoverBg: getCssVar('palette-neutral-0'),
-          outlinedActiveColor: getCssVar('palette-success-700'),
-          outlinedActiveBg: getCssVar('palette-neutral-0'),
+          softColor: getCssVar('palette-success-600'),
+          softBorder: getCssVar('palette-success-200'),
+          softBg: getCssVar('palette-success-100'),
+          softHoverBorder: getCssVar('palette-success-200'),
+          softHoverBg: getCssVar('palette-neutral-0'),
+          softActiveColor: getCssVar('palette-success-700'),
+          softActiveBorder: getCssVar('palette-success-700'),
+          softActiveBg: getCssVar('palette-neutral-0'),
         },
         danger: {
           700: '#B72B1A',
@@ -113,13 +115,14 @@ const strapiTheme = extendTheme({
           solidBg: getCssVar('palette-danger-600'),
           solidHoverBg: getCssVar('palette-danger-500'),
           solidActiveBg: getCssVar('palette-danger-700'),
-          outlinedColor: getCssVar('palette-danger-600'),
-          outlinedBorder: getCssVar('palette-danger-200'),
-          outlinedBg: getCssVar('palette-danger-100'),
-          outlinedHoverBorder: getCssVar('palette-danger-200'),
-          outlinedHoverBg: getCssVar('palette-neutral-0'),
-          outlinedActiveBg: getCssVar('palette-neutral-0'),
-          outlinedActiveColor: getCssVar('palette-danger-700'),
+          softColor: getCssVar('palette-danger-600'),
+          softBorder: getCssVar('palette-danger-200'),
+          softBg: getCssVar('palette-danger-100'),
+          softHoverBorder: getCssVar('palette-danger-200'),
+          softHoverBg: getCssVar('palette-neutral-0'),
+          softActiveBg: getCssVar('palette-neutral-0'),
+          softActiveBorder: getCssVar('palette-danger-700'),
+          softActiveColor: getCssVar('palette-danger-700'),
         },
         warning: {
           700: '#BE5D01',
@@ -323,7 +326,28 @@ const strapiTheme = extendTheme({
       textTransform: 'uppercase',
     },
   },
+  radius: {
+    xs: '2px',
+    sm: '4px',
+    md: '8px',
+  },
   components: {
+    JoyAlert: {
+      styleOverrides: {
+        root: ({ ownerState, theme }) => ({
+          fontWeight: 'normal',
+          boxShadow: '0px 2px 15px 0px #2121341A',
+          fontSize: theme.vars.fontSize.md,
+          ...(ownerState.variant === 'soft' && {
+            color: theme.vars.palette.text.primary,
+          }),
+          ...(ownerState.size === 'md' && {
+            '--Alert-gap': '14px',
+            '--Alert-padding': '20px',
+          }),
+        }),
+      },
+    },
     JoyCheckbox: {
       styleOverrides: {
         checkbox: ({ theme }) => ({
@@ -415,6 +439,29 @@ const strapiTheme = extendTheme({
           [`&.${iconButtonClasses.disabled}`]: {
             color: theme.vars.palette.text.primary,
           },
+        }),
+      },
+    },
+    JoyLink: {
+      defaultProps: {
+        underline: 'none',
+      },
+      styleOverrides: {
+        root: ({ theme, ownerState }) => ({
+          ...theme.typography.tableLabel,
+          color: theme.vars.palette[ownerState.color!]?.[600],
+          ...(!ownerState.variant &&
+            ownerState.color === 'primary' && {
+              '&:hover': {
+                color: theme.vars.palette.primary[500],
+              },
+              '&:active': {
+                color: theme.vars.palette.primary[700],
+              },
+              [`&.${linkClasses.disabled}`]: {
+                color: theme.vars.palette.neutral[500],
+              },
+            }),
         }),
       },
     },

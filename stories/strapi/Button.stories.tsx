@@ -32,7 +32,7 @@ export const Primary = Template.bind({});
 
 export const Secondary = Template.bind({});
 Secondary.args = {
-  variant: 'outlined',
+  variant: 'soft',
 };
 
 export const Tertiary = Template.bind({});
@@ -48,7 +48,7 @@ Success.args = {
 
 export const SuccessSecondary = Template.bind({});
 SuccessSecondary.args = {
-  variant: 'outlined',
+  variant: 'soft',
   color: 'success',
 };
 
@@ -59,7 +59,7 @@ Danger.args = {
 
 export const DangerSecondary = Template.bind({});
 DangerSecondary.args = {
-  variant: 'outlined',
+  variant: 'soft',
   color: 'danger',
 };
 
