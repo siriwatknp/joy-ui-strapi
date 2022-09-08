@@ -4,7 +4,11 @@
 This is a proof of concept repository but feel free to copy the theme if you like.
 ```
 
-## [Storybook](https://siriwatknp.github.io/joy-ui-themes/)
+## Demo
+
+- 🧪 **Strapi**: [Storybook](https://siriwatknp.github.io/joy-ui-themes/?path=/story/strapi-alert--information), [Figma](https://www.figma.com/community/file/1050701975985000987)
+- ⏱ Fluent (Microsoft) - WIP
+- ⏱ iOS - WIP
 
 ## Overview
 
