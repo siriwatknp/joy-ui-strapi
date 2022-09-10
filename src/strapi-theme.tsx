@@ -4,7 +4,8 @@ import { checkboxClasses } from '@mui/joy/Checkbox';
 import { buttonClasses } from '@mui/joy/Button';
 import { iconButtonClasses } from '@mui/joy/IconButton';
 import { linkClasses } from '@mui/joy/Link';
-import { switchClasses } from '@mui/joy';
+import { switchClasses } from '@mui/joy/Switch';
+import { radioClasses } from '@mui/joy/Radio';
 
 declare module '@mui/joy/styles' {
   interface PaletteRange {
@@ -518,6 +519,30 @@ const strapiTheme = extendTheme({
             },
           },
         }),
+      },
+    },
+    JoyRadio: {
+      styleOverrides: {
+        radio: ({ theme, ownerState }) => ({
+          borderColor: getCssVar('palette-neutral-300'),
+          ...(ownerState.checked && {
+            // TODO: fix this using class
+            color: theme.vars.palette.primary[600],
+            borderColor: theme.vars.palette.primary[600],
+            '&:hover': {
+              borderColor: theme.vars.palette.primary[600],
+            },
+          }),
+          [`&.${radioClasses.disabled}`]: {
+            ...theme.variants.outlined.neutral,
+            borderColor: getCssVar('palette-neutral-300'),
+            backgroundColor: getCssVar('palette-neutral-200'),
+          },
+        }),
+        icon: {
+          width: 12,
+          height: 12,
+        },
       },
     },
   },
