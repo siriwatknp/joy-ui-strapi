@@ -4,6 +4,7 @@ import { checkboxClasses } from '@mui/joy/Checkbox';
 import { buttonClasses } from '@mui/joy/Button';
 import { iconButtonClasses } from '@mui/joy/IconButton';
 import { linkClasses } from '@mui/joy/Link';
+import { switchClasses } from '@mui/joy';
 
 declare module '@mui/joy/styles' {
   interface PaletteRange {
@@ -462,6 +463,27 @@ const strapiTheme = extendTheme({
                 color: theme.vars.palette.neutral[500],
               },
             }),
+        }),
+      },
+    },
+    JoySwitch: {
+      styleOverrides: {
+        root: ({ theme }) => ({
+          '--Switch-thumb-size': '16px',
+          '--Switch-track-width': '40px',
+          '--Switch-track-height': '24px',
+          '--Switch-track-background': theme.vars.palette.danger[500],
+          color: theme.vars.palette.danger[600],
+          '&:hover': {
+            '--Switch-track-background': theme.vars.palette.danger[500],
+          },
+          [`&.${switchClasses.checked}`]: {
+            '--Switch-track-background': theme.vars.palette.success[500],
+            color: theme.vars.palette.success[600],
+            '&:hover': {
+              '--Switch-track-background': theme.vars.palette.success[500],
+            },
+          },
         }),
       },
     },
