@@ -7,6 +7,18 @@ import { linkClasses } from '@mui/joy/Link';
 import { switchClasses } from '@mui/joy/Switch';
 import { radioClasses } from '@mui/joy/Radio';
 
+// declare module '@mui/joy/Tab' {
+//   interface TabPropsVariantOverrides {
+//     underline: true;
+//   }
+// }
+
+declare module '@mui/joy/Chip' {
+  interface ChipPropsVariantOverrides {
+    badge: true;
+  }
+}
+
 declare module '@mui/joy/styles' {
   interface PaletteRange {
     150: string;
@@ -423,6 +435,22 @@ const strapiTheme = extendTheme({
         }),
       },
     },
+    JoyChip: {
+      styleOverrides: {
+        root: ({ ownerState, theme }) => ({
+          ...(ownerState.variant === 'badge' && {
+            '--Chip-minHeight': '16px',
+            '--Chip-paddingInline': '4px',
+            ...theme.typography.tableLabel,
+            color: theme.vars.palette[ownerState.color!]?.[600],
+            backgroundColor: getCssVar(
+              `palette-${ownerState.color}-150`,
+              `palette-${ownerState.color}-200`
+            ),
+          }),
+        }),
+      },
+    },
     JoyButton: {
       styleOverrides: {
         root: ({ ownerState, theme }) => ({
@@ -559,6 +587,98 @@ const strapiTheme = extendTheme({
           width: 12,
           height: 12,
         },
+      },
+    },
+    JoyTabs: {
+      styleOverrides: {
+        root: {
+          backgroundColor: 'transparent',
+        },
+      },
+    },
+    JoyTabList: {
+      styleOverrides: {
+        root: {
+          '--List-item-minHeight': '53px',
+          '--List-gap': '0px',
+          '--List-padding': '0px',
+          alignItems: 'flex-end',
+          backgroundColor: 'transparent',
+        },
+      },
+    },
+    JoyTab: {
+      defaultProps: {
+        variant: 'soft',
+      },
+      styleOverrides: {
+        root: ({ ownerState, theme }) => ({
+          transition: 'background-color 250ms cubic-bezier(0.4, 0, 0.2, 1)',
+          ...theme.typography.buttonText,
+          ...(ownerState.variant === 'plain' && {
+            minHeight: '48px',
+            paddingInline: '16px',
+            flex: 'none',
+            boxShadow: 'none',
+            ...(ownerState.selected
+              ? {
+                  '--Tab-color':
+                    theme.vars.palette[
+                      (ownerState.color === 'neutral'
+                        ? 'primary'
+                        : ownerState.color)!
+                    ]?.[600],
+                  color: 'var(--Tab-color)',
+                  borderBottom: '2px solid',
+                  borderColor: 'currentColor',
+                  '&:hover': {
+                    color: 'var(--Tab-color)',
+                  },
+                }
+              : {
+                  color: theme.vars.palette[ownerState.color!]?.[600],
+                }),
+          }),
+          ...(ownerState.variant === 'soft' && {
+            ...(ownerState.selected
+              ? {
+                  minHeight: 'calc(var(--List-item-minHeight) + 4px)',
+                  boxShadow: '0px 1px 4px rgba(26, 26, 67, 0.1)',
+                  borderTopLeftRadius: 4,
+                  borderTopRightRadius: 4,
+                  backgroundColor: theme.vars.palette.background.surface,
+                  color: theme.vars.palette.primary[600],
+                  zIndex: 1,
+                  '&:hover': {
+                    backgroundColor: theme.vars.palette.background.surface,
+                    color: theme.vars.palette.primary[600],
+                  },
+                }
+              : {
+                  borderRadius: 0,
+                  color: theme.vars.palette.neutral[500],
+                  border: '1px solid',
+                  borderColor: theme.vars.palette.neutral[200],
+                  borderLeft: 0,
+                  borderTop: 0,
+                  '&:first-child': {
+                    borderTopLeftRadius: 4,
+                  },
+                  '&:last-child': {
+                    borderTopRightRadius: 4,
+                    borderRight: 0,
+                  },
+                }),
+          }),
+        }),
+      },
+    },
+    JoyTabPanel: {
+      styleOverrides: {
+        root: ({ theme }) => ({
+          zIndex: 1,
+          backgroundColor: theme.vars.palette.background.surface,
+        }),
       },
     },
   },
