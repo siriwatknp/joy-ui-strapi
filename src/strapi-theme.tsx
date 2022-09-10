@@ -71,9 +71,13 @@ const strapiTheme = extendTheme({
     light: {
       palette: {
         primary: {
+          900: undefined,
+          800: undefined,
           700: '#271FE0',
           600: '#4945FF',
           500: '#7B79FF',
+          400: undefined,
+          300: undefined,
           200: '#D9D8FF',
           100: '#F0F0FF',
           mainChannel: '73 69 255',
@@ -91,8 +95,12 @@ const strapiTheme = extendTheme({
           softDisabledColor: getCssVar('palette-neutral-600'),
         },
         success: {
+          900: undefined,
+          800: undefined,
           700: '#2F6846',
           600: '#328048',
+          400: undefined,
+          300: undefined,
           500: '#5CB176',
           200: '#C6F0C2',
           100: '#EAFBE7',
@@ -109,8 +117,12 @@ const strapiTheme = extendTheme({
           softActiveBg: getCssVar('palette-neutral-0'),
         },
         danger: {
+          900: undefined,
+          800: undefined,
           700: '#B72B1A',
           600: '#D02B20',
+          400: undefined,
+          300: undefined,
           500: '#EE5E52',
           200: '#F5C0B8',
           100: '#FCECEA',
@@ -127,8 +139,12 @@ const strapiTheme = extendTheme({
           softActiveColor: getCssVar('palette-danger-700'),
         },
         warning: {
+          900: undefined,
+          800: undefined,
           700: '#BE5D01',
           600: '#D9822F',
+          400: undefined,
+          300: undefined,
           500: '#F29D41',
           200: '#FAE7B9',
           100: '#FDF4DC',
