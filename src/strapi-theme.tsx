@@ -436,18 +436,43 @@ const strapiTheme = extendTheme({
       },
     },
     JoyChip: {
+      defaultProps: {
+        variant: 'soft',
+        color: 'primary',
+      },
       styleOverrides: {
         root: ({ ownerState, theme }) => ({
-          ...(ownerState.variant === 'badge' && {
-            '--Chip-minHeight': '16px',
-            '--Chip-paddingInline': '4px',
-            ...theme.typography.tableLabel,
-            color: theme.vars.palette[ownerState.color!]?.[600],
-            backgroundColor: getCssVar(
-              `palette-${ownerState.color}-150`,
-              `palette-${ownerState.color}-200`
-            ),
-          }),
+          ...(ownerState.variant === 'badge'
+            ? {
+                '--Chip-radius': '2px',
+                '--Chip-minHeight': '16px',
+                '--Chip-paddingInline': '4px',
+                ...theme.typography.tableLabel,
+                color: theme.vars.palette[ownerState.color!]?.[600],
+                backgroundColor: getCssVar(
+                  `palette-${ownerState.color}-150`,
+                  `palette-${ownerState.color}-200`
+                ),
+              }
+            : {
+                '--Chip-radius': '4px',
+                '--Chip-gap': '8px',
+                '--Icon-fontSize': '12px',
+              }),
+        }),
+        endDecorator: ({ ownerState, theme }) => ({
+          position: 'relative',
+          '&:before': {
+            content: '""',
+            display: 'block',
+            position: 'absolute',
+            left: -1,
+            top: '50%',
+            transform: 'translateY(-50%)',
+            height: '10px',
+            width: 1,
+            backgroundColor: theme.vars.palette[ownerState.color!]?.softBorder,
+          },
         }),
       },
     },
