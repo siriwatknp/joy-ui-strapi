@@ -350,6 +350,39 @@ const strapiTheme = extendTheme({
       },
     },
     JoyCheckbox: {
+      defaultProps: {
+        indeterminateIcon: (
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="10"
+            height="10"
+            viewBox="0 0 10 10"
+            fill="none"
+          >
+            <rect
+              y="3.95825"
+              width="10"
+              height="2.08333"
+              rx="0.2"
+              fill="currentColor"
+            />
+          </svg>
+        ),
+        checkedIcon: (
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="10"
+            height="10"
+            viewBox="0 0 10 10"
+            fill="none"
+          >
+            <path
+              d="M8.55323 1.32349C8.63135 1.24287 8.76051 1.24232 8.83931 1.32228L9.86256 2.36059C9.93893 2.43808 9.93935 2.56241 9.86349 2.64041L4.06401 8.60375C3.9859 8.68407 3.85707 8.68457 3.77834 8.60486L0.13866 4.91984C0.0617798 4.842 0.0617102 4.71684 0.138504 4.63891L1.16213 3.60023C1.24038 3.52084 1.36843 3.52073 1.4468 3.59999L3.92174 6.10298L8.55323 1.32349Z"
+              fill="currentColor"
+            />
+          </svg>
+        ),
+      },
       styleOverrides: {
         checkbox: ({ theme }) => ({
           borderColor: getCssVar('palette-neutral-300'),
