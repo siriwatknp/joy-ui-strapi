@@ -9,6 +9,7 @@ import { radioClasses } from '@mui/joy/Radio';
 import { inputClasses } from '@mui/joy/Input';
 import { formControlClasses } from '@mui/joy/FormControl';
 import { textareaClasses } from '@mui/joy/Textarea';
+import { selectClasses } from '@mui/joy/Select';
 import type {} from '@mui/joy/Chip';
 import type {} from '@mui/joy/Tab';
 
@@ -538,6 +539,9 @@ const strapiTheme = extendTheme({
           [`&.${formControlClasses.disabled}`]: {
             '--FormLabel-color': theme.vars.palette.text.primary,
             '--FormHelperText-color': theme.vars.palette.text.secondary,
+          },
+          [`&.${formControlClasses.error}`]: {
+            '--FormHelperText-color': theme.vars.palette.danger[600],
           }
         })
       }
@@ -809,6 +813,41 @@ const strapiTheme = extendTheme({
         textarea: {
           marginTop: '1px',
         }
+      }
+    },
+    JoySelect: {
+      styleOverrides: {
+        root: ({ theme, ownerState }) => ({
+          '--Select-focusedHighlight': theme.vars.palette[ownerState.color === 'neutral' ? 'primary' : ownerState.color!]?.[600],
+          '&::before': {
+            boxShadow: ownerState.open ? `inset 0 0 0 2px var(--Select-focusedHighlight)` : undefined,
+          },
+          color: theme.vars.palette.text.primary,
+          backgroundColor: theme.vars.palette.background.body,
+          ...(ownerState.color === 'danger' && {
+            borderColor: theme.vars.palette.danger[600],
+            ...(ownerState.variant === 'outlined' && {
+              '&:hover': {
+                borderColor: theme.vars.palette.danger[600],
+              },
+            }),
+          }),
+          [`&.${selectClasses.disabled}`]: {
+            '--Select-placeholderOpacity': 1,
+          },
+        }),
+        listbox: {
+          boxSizing: 'border-box',
+          boxShadow: '0px 1px 4px 0px #2121341A',
+          '--List-padding': '4px',
+        }
+      }
+    },
+    JoyOption: {
+      styleOverrides: {
+        root: ({ theme }) => ({
+          '&:hover': theme.variants.plainHover.primary,
+        })
       }
     }
   },
