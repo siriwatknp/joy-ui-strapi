@@ -629,10 +629,10 @@ const strapiTheme = extendTheme({
     JoyLink: {
       defaultProps: {
         underline: 'none',
+        level: 'tableLabel'
       },
       styleOverrides: {
         root: ({ theme, ownerState }) => ({
-          ...theme.typography.tableLabel,
           color: theme.vars.palette[ownerState.color!]?.[600],
           ...(!ownerState.variant &&
             ownerState.color === 'primary' && {

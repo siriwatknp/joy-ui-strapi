@@ -129,7 +129,7 @@ export const Complex: Story<InputProps> = args => (
         level="smallText"
         component="button"
         underline="none"
-        sx={{ ml: 'auto', textTransform: 'initial', fontWeight: 'normal' }}
+        sx={{ ml: 'auto' }}
       >
         Details
       </Link>
