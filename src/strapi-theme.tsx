@@ -6,12 +6,16 @@ import { iconButtonClasses } from '@mui/joy/IconButton';
 import { linkClasses } from '@mui/joy/Link';
 import { switchClasses } from '@mui/joy/Switch';
 import { radioClasses } from '@mui/joy/Radio';
+import { inputClasses } from '@mui/joy/Input';
+import { formControlClasses } from '@mui/joy/FormControl';
+import type {} from '@mui/joy/Chip';
+import type {} from '@mui/joy/Tab';
 
-// declare module '@mui/joy/Tab' {
-//   interface TabPropsVariantOverrides {
-//     underline: true;
-//   }
-// }
+declare module '@mui/joy/Tab' {
+  interface TabPropsVariantOverrides {
+    underline: true;
+  }
+}
 
 declare module '@mui/joy/Chip' {
   interface ChipPropsVariantOverrides {
@@ -51,17 +55,30 @@ declare module '@mui/joy/styles' {
     };
   }
 
-  interface TypographySystem {
-    header1: React.CSSProperties;
-    header2: React.CSSProperties;
-    header3: React.CSSProperties;
-    subtitle: React.CSSProperties;
-    body: React.CSSProperties;
-    bodyHighlight: React.CSSProperties;
-    buttonText: React.CSSProperties;
-    smallText: React.CSSProperties;
-    smallButtonText: React.CSSProperties;
-    tableLabel: React.CSSProperties;
+  interface TypographySystemOverrides {
+    header1: true;
+    header2: true;
+    header3: true;
+    subtitle: true;
+    body: true;
+    bodyHighlight: true;
+    buttonText: true;
+    smallText: true;
+    smallButtonText: true;
+    tableLabel: true;
+    display1: false;
+    display2: false;
+    h1: false;
+    h2: false;
+    h3: false;
+    h4: false;
+    h5: false;
+    h6: false;
+    body1: false;
+    body2: false;
+    body3: false;
+    body4: false;
+    body5: false;
   }
 
   interface VariantSoft {
@@ -513,6 +530,32 @@ const strapiTheme = extendTheme({
         }),
       },
     },
+    JoyFormControl: {
+      styleOverrides: {
+        root:  ({ theme }) => ({
+          '--FormHelperText-margin': '4px 0 0 0',
+          [`&.${formControlClasses.disabled}`]: {
+            '--FormLabel-color': theme.vars.palette.text.primary,
+            '--FormHelperText-color': theme.vars.palette.text.secondary,
+          }
+        })
+      }
+    },
+    JoyFormLabel: {
+      styleOverrides: {
+        root: ({ theme }) => ({
+          ...theme.typography.smallButtonText,
+        }),
+      }
+    },
+    JoyFormHelperText: {
+      styleOverrides: {
+        root: ({ theme }) => ({
+          ...theme.typography.smallText,
+          color: undefined,
+        }),
+      }
+    },
     JoyIconButton: {
       defaultProps: {
         variant: 'outlined',
@@ -543,6 +586,43 @@ const strapiTheme = extendTheme({
           [`&.${iconButtonClasses.disabled}`]: {
             color: theme.vars.palette.text.primary,
           },
+        }),
+      },
+    },
+    JoyInput: {
+      styleOverrides: {
+        root: ({ ownerState, theme }) => ({
+          '--Input-radius': '4px',
+          ...(ownerState.size === 'md' && {
+            '--Input-paddingInline': '16px',
+            '--Input-gutter': '1rem',
+          }),
+          '--Input-focusedHighlight':
+            theme.vars.palette[
+              ownerState.color === 'neutral'
+                ? 'primary'
+                : ownerState.color || 'primary'
+            ]?.[600],
+          color: theme.vars.palette.text.primary,
+          backgroundColor: theme.vars.palette.background.body,
+          ...(ownerState.color === 'danger' && {
+            borderColor: theme.vars.palette.danger[600],
+            ...(ownerState.variant === 'outlined' && {
+              '&:hover': {
+                borderColor: theme.vars.palette.danger[600],
+                backgroundColor: theme.vars.palette.danger.plainHoverBg,
+              },
+            }),
+          }),
+          [`&.${inputClasses.disabled}`]: {
+            '--Input-placeholderOpacity': 1,
+          },
+        }),
+        endDecorator: ({ ownerState }) => ({
+          ...(ownerState.size === 'md' &&
+            {
+              // marginRight: '-0.75rem',
+            }),
         }),
       },
     },
