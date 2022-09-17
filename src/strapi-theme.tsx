@@ -8,6 +8,7 @@ import { switchClasses } from '@mui/joy/Switch';
 import { radioClasses } from '@mui/joy/Radio';
 import { inputClasses } from '@mui/joy/Input';
 import { formControlClasses } from '@mui/joy/FormControl';
+import { textareaClasses } from '@mui/joy/Textarea';
 import type {} from '@mui/joy/Chip';
 import type {} from '@mui/joy/Tab';
 
@@ -592,7 +593,6 @@ const strapiTheme = extendTheme({
     JoyInput: {
       styleOverrides: {
         root: ({ ownerState, theme }) => ({
-          '--Input-radius': '4px',
           ...(ownerState.size === 'md' && {
             '--Input-paddingInline': '16px',
             '--Input-gutter': '1rem',
@@ -610,19 +610,12 @@ const strapiTheme = extendTheme({
             ...(ownerState.variant === 'outlined' && {
               '&:hover': {
                 borderColor: theme.vars.palette.danger[600],
-                backgroundColor: theme.vars.palette.danger.plainHoverBg,
               },
             }),
           }),
           [`&.${inputClasses.disabled}`]: {
             '--Input-placeholderOpacity': 1,
           },
-        }),
-        endDecorator: ({ ownerState }) => ({
-          ...(ownerState.size === 'md' &&
-            {
-              // marginRight: '-0.75rem',
-            }),
         }),
       },
     },
@@ -786,6 +779,38 @@ const strapiTheme = extendTheme({
         }),
       },
     },
+    JoyTextarea: {
+      styleOverrides: {
+        root: ({ ownerState, theme }) => ({
+          ...(ownerState.size === 'md' && {
+            '--Textarea-paddingInline': '16px',
+            '--Textarea-gutter': '1rem',
+          }),
+          '--Textarea-focusedHighlight':
+            theme.vars.palette[
+              ownerState.color === 'neutral'
+                ? 'primary'
+                : ownerState.color || 'primary'
+            ]?.[600],
+          color: theme.vars.palette.text.primary,
+          backgroundColor: theme.vars.palette.background.body,
+          ...(ownerState.color === 'danger' && {
+            borderColor: theme.vars.palette.danger[600],
+            ...(ownerState.variant === 'outlined' && {
+              '&:hover': {
+                borderColor: theme.vars.palette.danger[600],
+              },
+            }),
+          }),
+          [`&.${textareaClasses.disabled}`]: {
+            '--Textarea-placeholderOpacity': 1,
+          },
+        }),
+        textarea: {
+          marginTop: '1px',
+        }
+      }
+    }
   },
 });
 
