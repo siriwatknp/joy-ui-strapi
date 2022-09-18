@@ -1,7 +1,7 @@
 import React from 'react';
 import { Meta, Story } from '@storybook/react';
 import Box from '@mui/joy/Box';
-import Checkbox, { CheckboxProps, checkboxClasses } from '@mui/joy/Checkbox';
+import Checkbox, { CheckboxProps } from '@mui/joy/Checkbox';
 
 const meta: Meta = {
   title: 'Strapi/Checkbox',

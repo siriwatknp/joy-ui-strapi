@@ -1,10 +1,9 @@
 import React from 'react';
-import { Meta, Story } from '@storybook/react';
+import { Meta } from '@storybook/react';
 import Box from '@mui/joy/Box';
-import Card, { CardProps } from '@mui/joy/Card';
+import Card from '@mui/joy/Card';
 import CardCover from '@mui/joy/CardCover';
 import CardOverflow from '@mui/joy/CardOverflow';
-import CardContent from '@mui/joy/CardContent';
 import AspectRatio from '@mui/joy/AspectRatio';
 import Chip from '@mui/joy/Chip';
 import Checkbox from '@mui/joy/Checkbox';

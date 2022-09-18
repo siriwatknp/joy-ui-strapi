@@ -1,8 +1,5 @@
 import React from 'react';
 import { Meta, Story } from '@storybook/react';
-import Box from '@mui/joy/Box';
-import Link from '@mui/joy/Link';
-import IconButton from '@mui/joy/IconButton';
 import FormControl from '@mui/joy/FormControl';
 import FormLabel from '@mui/joy/FormLabel';
 import FormHelperText from '@mui/joy/FormHelperText';
@@ -23,8 +20,6 @@ const meta: Meta = {
 };
 
 export default meta;
-
-const Template: Story<TextareaProps> = args => <Textarea {...args} />;
 
 export const Simple: Story<TextareaProps> = args => (
   <FormControl>
