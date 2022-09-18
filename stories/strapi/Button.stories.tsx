@@ -1,7 +1,7 @@
 import React from 'react';
 import { Meta, Story } from '@storybook/react';
 import Box from '@mui/joy/Box';
-import Button, { ButtonProps, buttonClasses } from '@mui/joy/Button';
+import Button, { ButtonProps } from '@mui/joy/Button';
 
 const meta: Meta = {
   title: 'Strapi/Button',

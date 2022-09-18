@@ -18,8 +18,6 @@ const meta: Meta = {
 
 export default meta;
 
-const Template: Story<SelectProps<any>> = args => <Select {...args} />;
-
 const ArrowDown = () => (
   <svg
     xmlns="http://www.w3.org/2000/svg"

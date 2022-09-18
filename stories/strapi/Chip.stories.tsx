@@ -17,31 +17,35 @@ export default meta;
 
 export const Badge: Story<ChipProps> = args => (
   <Box sx={{ display: 'flex', gap: 2 }}>
-    <Chip variant="badge" color="neutral">
+    <Chip {...args} variant="badge" color="neutral">
       Text
     </Chip>
-    <Chip variant="badge" color="primary">
+    <Chip {...args} variant="badge" color="primary">
       Text
     </Chip>
   </Box>
 );
 
 export const Tag: Story<ChipProps> = args => (
-  <Chip endDecorator={<ChipDelete variant="plain" />}>filtername</Chip>
+  <Chip {...args} endDecorator={<ChipDelete variant="plain" />}>
+    filtername
+  </Chip>
 );
 
 export const Usage: Story<ChipProps> = args => (
   <Box sx={{ display: 'flex', gap: 1 }}>
-    <Chip variant="outlined" color="neutral" onClick={() => {}}>
+    <Chip {...args} variant="outlined" color="neutral" onClick={() => {}}>
       Filters
     </Chip>
     <Chip
+      {...args}
       endDecorator={<ChipDelete variant="plain" />}
       sx={{ fontWeight: 'normal' }}
     >
       Created_at&nbsp;<strong>is</strong> &nbsp;Monday, May 3rd 2021 15:06
     </Chip>
     <Chip
+      {...args}
       endDecorator={<ChipDelete variant="plain" />}
       sx={{ fontWeight: 'normal' }}
     >

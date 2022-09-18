@@ -19,12 +19,10 @@ const meta: Meta = {
 
 export default meta;
 
-const Template: Story<InputProps> = args => <Input {...args} />;
-
 export const Simple: Story<InputProps> = args => (
   <FormControl>
     <FormLabel>Label</FormLabel>
-    <Input placeholder="Placeholder" />
+    <Input {...args} placeholder="Placeholder" />
     <FormHelperText>Description</FormHelperText>
   </FormControl>
 );
@@ -32,7 +30,7 @@ export const Simple: Story<InputProps> = args => (
 export const Focused: Story<InputProps> = args => (
   <FormControl>
     <FormLabel>Label</FormLabel>
-    <Input autoFocus placeholder="Placeholder" />
+    <Input {...args} autoFocus placeholder="Placeholder" />
     <FormHelperText>Description</FormHelperText>
   </FormControl>
 );
@@ -40,7 +38,7 @@ export const Focused: Story<InputProps> = args => (
 export const Error: Story<InputProps> = args => (
   <FormControl error>
     <FormLabel>Label</FormLabel>
-    <Input placeholder="Placeholder" />
+    <Input {...args} placeholder="Placeholder" />
     <FormHelperText>Description</FormHelperText>
   </FormControl>
 );
@@ -48,7 +46,7 @@ export const Error: Story<InputProps> = args => (
 export const Disabled: Story<InputProps> = args => (
   <FormControl disabled>
     <FormLabel>Label</FormLabel>
-    <Input placeholder="Placeholder" />
+    <Input {...args} placeholder="Placeholder" />
     <FormHelperText>Description</FormHelperText>
   </FormControl>
 );
@@ -135,6 +133,7 @@ export const Complex: Story<InputProps> = args => (
       </Link>
     </Box>
     <Input
+      {...args}
       placeholder="Placeholder"
       endDecorator={
         <IconButton variant="plain">
@@ -150,6 +149,7 @@ export const Prefix: Story<InputProps> = args => (
   <FormControl>
     <FormLabel>Label</FormLabel>
     <Input
+      {...args}
       placeholder="Placeholder"
       startDecorator="Test"
       defaultValue="Completed"
@@ -187,6 +187,7 @@ export const Permission: Story<InputProps> = args => (
   <FormControl disabled>
     <FormLabel>Label</FormLabel>
     <Input
+      {...args}
       placeholder="No permissions to see this field"
       startDecorator={<EyeStriked />}
     />

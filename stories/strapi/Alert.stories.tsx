@@ -1,8 +1,7 @@
 import React from 'react';
 import { Meta, Story } from '@storybook/react';
-import Box from '@mui/joy/Box';
 import Stack from '@mui/joy/Stack';
-import Alert, { AlertProps, alertClasses } from '@mui/joy/Alert';
+import Alert, { AlertProps } from '@mui/joy/Alert';
 import IconButton from '@mui/joy/IconButton';
 import Typography from '@mui/joy/Typography';
 import Link from '@mui/joy/Link';
@@ -65,6 +64,7 @@ const ExternalLink = () => (
 
 export const Information: Story<AlertProps> = args => (
   <Alert
+    {...args}
     variant="soft"
     color="primary"
     startDecorator={<Info />}
@@ -86,6 +86,7 @@ export const Information: Story<AlertProps> = args => (
 
 export const InformationLarge: Story<AlertProps> = args => (
   <Alert
+    {...args}
     variant="soft"
     color="primary"
     startDecorator={<Info />}
@@ -114,6 +115,7 @@ export const InformationLarge: Story<AlertProps> = args => (
 
 export const InformationLink: Story<AlertProps> = args => (
   <Alert
+    {...args}
     variant="soft"
     color="primary"
     startDecorator={<Info />}
@@ -138,6 +140,7 @@ export const InformationLink: Story<AlertProps> = args => (
 
 export const InformationLargeLink: Story<AlertProps> = args => (
   <Alert
+    {...args}
     variant="soft"
     color="primary"
     startDecorator={<Info />}

@@ -1,6 +1,5 @@
 import React from 'react';
 import { Meta, Story } from '@storybook/react';
-import Box from '@mui/joy/Box';
 import IconButton, { IconButtonProps } from '@mui/joy/IconButton';
 
 const meta: Meta = {
