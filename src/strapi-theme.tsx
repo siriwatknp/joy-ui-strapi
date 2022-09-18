@@ -157,6 +157,7 @@ const strapiTheme = extendTheme({
           500: '#EE5E52',
           200: '#F5C0B8',
           100: '#FCECEA',
+          outlinedBorder: getCssVar('palette-danger-600'),
           solidBg: getCssVar('palette-danger-600'),
           solidHoverBg: getCssVar('palette-danger-500'),
           solidActiveBg: getCssVar('palette-danger-700'),
@@ -397,6 +398,15 @@ const strapiTheme = extendTheme({
         }),
       },
     },
+    JoyAspectRatio: {
+      styleOverrides: {
+        content: ({ ownerState, theme }) => ({
+          ...ownerState.variant === 'soft' && ownerState.color === 'neutral' && { 
+            backgroundColor: theme.vars.palette.neutral[200]
+          }
+        })
+      }
+    },  
     JoyCheckbox: {
       defaultProps: {
         indeterminateIcon: (
@@ -432,17 +442,21 @@ const strapiTheme = extendTheme({
         ),
       },
       styleOverrides: {
-        checkbox: ({ theme }) => ({
-          borderColor: getCssVar('palette-neutral-300'),
-          [`&.${checkboxClasses.checked}`]: {
-            '&:hover': {
-              backgroundColor: getCssVar('palette-primary-solidBg'),
-            },
-          },
-          [`&.${checkboxClasses.disabled}`]: {
-            ...theme.variants.outlined.neutral,
+        checkbox: ({ theme, ownerState }) => ({
+          borderRadius: theme.vars.radius.sm,
+          ...ownerState.variant === 'outlined' && {
+            backgroundColor: theme.vars.palette.background.surface,
             borderColor: getCssVar('palette-neutral-300'),
-            backgroundColor: getCssVar('palette-neutral-200'),
+            [`&.${checkboxClasses.checked}`]: {
+              '&:hover': {
+                backgroundColor: getCssVar('palette-primary-solidBg'),
+              },
+            },
+            [`&.${checkboxClasses.disabled}`]: {
+              ...theme.variants.outlined.neutral,
+              borderColor: getCssVar('palette-neutral-300'),
+              backgroundColor: getCssVar('palette-neutral-200'),
+            },
           },
           // [theme.getColorSchemeSelector('dark')]: {
           //   borderColor: getCssVar('palette-neutral-500'),
@@ -453,6 +467,17 @@ const strapiTheme = extendTheme({
           // },
         }),
       },
+    },
+    JoyCard: {
+      defaultProps: {
+        variant: 'outlined',
+      },
+      styleOverrides: {
+        root: ({ theme }) => ({
+          '--Card-radius': theme.vars.radius.sm,
+          boxShadow: `0px 1px 4px 0px #1A1A431A`,
+        })
+      }
     },
     JoyChip: {
       defaultProps: {
@@ -498,7 +523,6 @@ const strapiTheme = extendTheme({
     JoyButton: {
       styleOverrides: {
         root: ({ ownerState, theme }) => ({
-          borderRadius: '4px',
           ...theme.typography.buttonText,
           ...(ownerState.size === 'sm' && {
             minHeight: 32,
@@ -568,7 +592,6 @@ const strapiTheme = extendTheme({
       },
       styleOverrides: {
         root: ({ ownerState, theme }) => ({
-          borderRadius: `var(--IconButton-radius, ${theme.vars.radius.xs})`,
           ...(ownerState.size === 'md' && {
             '--Icon-fontSize': '1rem',
             minWidth: 'var(--IconButton-size, 2rem)',
