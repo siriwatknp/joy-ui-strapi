@@ -2,6 +2,8 @@ import React from 'react';
 import { Meta, Story } from '@storybook/react';
 import Box from '@mui/joy/Box';
 import Button, { ButtonProps } from '@mui/joy/Button';
+import CircularProgress from '@mui/joy/CircularProgress';
+import SvgIcon from '@mui/joy/SvgIcon';
 
 const meta: Meta = {
   title: 'Strapi/Button',
@@ -63,6 +65,22 @@ DangerSecondary.args = {
   color: 'danger',
 };
 
+export const Loading = Template.bind({});
+Loading.args = {
+  startDecorator: <CircularProgress variant="solid" />,
+};
+
+const Pencil = () => (
+  <SvgIcon viewBox="0 0 12 12">
+    <path
+      fill-rule="evenodd"
+      clip-rule="evenodd"
+      d="M11.8021 1.75705C12.0659 2.0209 12.0659 2.43668 11.8021 2.70054L10.4908 4.00383L7.99616 1.50918L9.29945 0.197893C9.5633 -0.0659642 9.97908 -0.0659642 10.2429 0.197893L11.8021 1.75705ZM0 12V9.50535L7.10013 2.4052L9.59477 4.89984L2.49464 12H0Z"
+      fill="currentColor"
+    />
+  </SvgIcon>
+);
+
 export const Sizes: Story<ButtonProps> = args => (
   <Box sx={{ display: 'flex', gap: 2, alignItems: 'center' }}>
     <Button {...args} size="sm" />
@@ -70,3 +88,6 @@ export const Sizes: Story<ButtonProps> = args => (
     <Button {...args} size="lg" />
   </Box>
 );
+Sizes.args = {
+  startDecorator: <Pencil />,
+};

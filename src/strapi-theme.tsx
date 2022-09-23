@@ -10,6 +10,7 @@ import { inputClasses } from '@mui/joy/Input';
 import { formControlClasses } from '@mui/joy/FormControl';
 import { textareaClasses } from '@mui/joy/Textarea';
 import { selectClasses } from '@mui/joy/Select';
+import { circularProgressClasses } from '@mui/joy/CircularProgress';
 import type {} from '@mui/joy/Chip';
 import type {} from '@mui/joy/Tab';
 
@@ -520,13 +521,30 @@ const strapiTheme = extendTheme({
           ...(ownerState.size === 'sm' && {
             minHeight: 32,
             ...theme.typography.smallButtonText,
+            '--Icon-fontSize': '10px',
+            '--CircularProgress-size': '12px',
+            [`& .${circularProgressClasses.root}`]: {
+              '--CircularProgress-track-thickness': '2px',
+              '--CircularProgress-progress-thickness': '2px',
+            }
           }),
           ...(ownerState.size === 'md' && {
-            '--Icon-fontSize': '1.25rem',
             minHeight: 36,
+            '--Icon-fontSize': '12px',
+            '--CircularProgress-size': '16px',
+            [`& .${circularProgressClasses.root}`]: {
+              '--CircularProgress-track-thickness': '4px',
+              '--CircularProgress-progress-thickness': '4px',
+            }
           }),
           ...(ownerState.size === 'lg' && {
             minHeight: 40,
+            '--Icon-fontSize': '14px',
+            '--CircularProgress-size': '20px',
+            [`& .${circularProgressClasses.root}`]: {
+              '--CircularProgress-track-thickness': '4px',
+              '--CircularProgress-progress-thickness': '4px',
+            }
           }),
           [`&.${buttonClasses.focusVisible}`]: {
             ...(ownerState.variant === 'outlined' && {
@@ -541,6 +559,10 @@ const strapiTheme = extendTheme({
           [`&.${buttonClasses.disabled}`]: {
             ...theme.variants.outlined.neutral,
             ...theme.variants.outlinedDisabled.neutral,
+            [`& .${circularProgressClasses.root}`]: {
+              '--CircularProgress-track-color': theme.vars.palette.neutral[200],
+              '--CircularProgress-progress-color': theme.vars.palette.neutral[400],
+            }
           },
           ...(ownerState.variant === 'outlined' &&
             ownerState.color === 'neutral' && {
