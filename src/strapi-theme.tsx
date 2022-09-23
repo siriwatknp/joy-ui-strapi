@@ -452,19 +452,12 @@ const strapiTheme = extendTheme({
                 backgroundColor: getCssVar('palette-primary-solidBg'),
               },
             },
-            [`&.${checkboxClasses.disabled}`]: {
-              ...theme.variants.outlined.neutral,
-              borderColor: getCssVar('palette-neutral-300'),
-              backgroundColor: getCssVar('palette-neutral-200'),
-            },
           },
-          // [theme.getColorSchemeSelector('dark')]: {
-          //   borderColor: getCssVar('palette-neutral-500'),
-          //   [`&.${checkboxClasses.disabled}`]: {
-          //     borderColor: getCssVar('palette-neutral-500'),
-          //     backgroundColor: getCssVar('palette-neutral-700'),
-          //   },
-          // },
+          [`&.${checkboxClasses.disabled}`]: {
+            ...theme.variants.outlined.neutral,
+            borderColor: getCssVar('palette-neutral-300'),
+            backgroundColor: getCssVar('palette-neutral-200'),
+          },
         }),
       },
     },
