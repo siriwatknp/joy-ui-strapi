@@ -874,11 +874,14 @@ const strapiTheme = extendTheme({
             '--Select-placeholderOpacity': 1,
           },
         }),
-        listbox: {
+        listbox: ({ ownerState }) =>  ({
           boxSizing: 'border-box',
           boxShadow: '0px 1px 4px 0px #2121341A',
-          '--List-padding': '4px',
-        }
+          ...ownerState.size === 'md' && {
+            '--List-padding': '4px',
+            '--List-item-minHeight': '36px',
+          }
+        })
       }
     },
     JoyOption: {
