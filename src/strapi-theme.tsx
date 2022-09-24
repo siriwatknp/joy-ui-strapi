@@ -887,7 +887,37 @@ const strapiTheme = extendTheme({
           '&:hover': theme.variants.plainHover.primary,
         })
       }
-    }
+    },
+    JoyMenu: {
+      defaultProps: {
+        placement: 'bottom-start',
+      },
+      styleOverrides: {
+        root: ({ ownerState }) => ({
+          boxShadow: '0px 1px 4px 0px #2121341A',
+          ...ownerState.size === 'md' && {
+            '--List-padding': '4px',
+            '--List-item-minHeight': '36px',
+          }
+        })
+      }
+    },
+    JoyMenuItem:  {
+      styleOverrides: {
+        root: ({ ownerState, theme }) => ({
+          ...!ownerState.selected && {
+            ...ownerState.variant === 'plain' && ownerState.color === 'neutral' && {
+              '&:hover': {
+                backgroundColor: theme.vars.palette.primary.plainHoverBg,
+              },
+              '&:active': {
+                backgroundColor: theme.vars.palette.primary.plainActiveBg,
+              }
+            }
+          }
+        })
+      }
+    },
   },
 });
 
