@@ -9,7 +9,7 @@ import FormHelperText from '@mui/joy/FormHelperText';
 import Input, { InputProps, inputClasses } from '@mui/joy/Input';
 
 const meta: Meta = {
-  title: 'Strapi/Input',
+  title: 'Components/Input',
   component: Input,
   argTypes: {},
   parameters: {

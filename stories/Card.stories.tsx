@@ -11,7 +11,7 @@ import IconButton from '@mui/joy/IconButton';
 import Typography from '@mui/joy/Typography';
 
 const meta: Meta = {
-  title: 'Strapi/Card',
+  title: 'Components/Card',
   component: Card,
   argTypes: {},
   parameters: {

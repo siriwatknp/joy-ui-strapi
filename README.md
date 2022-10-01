@@ -1,4 +1,4 @@
-# Joy UI themes
+# Joy UI theme for Strapi design
 
 ```
 This is a proof of concept repository but feel free to copy the theme if you like.
@@ -6,7 +6,7 @@ This is a proof of concept repository but feel free to copy the theme if you lik
 
 ## Demo
 
-- 🧪 **Strapi**: [Storybook](https://siriwatknp.github.io/joy-ui-themes/?path=/story/strapi-alert--information), [Figma](https://www.figma.com/community/file/1050701975985000987)
+- 🧪 **Strapi**: [Storybook](https://siriwatknp.github.io/joy-ui-strapi/?path=/story/strapi-alert--information), [Figma](https://www.figma.com/community/file/1050701975985000987)
 - ⏱ Fluent (Microsoft) - WIP
 - ⏱ iOS - WIP
 

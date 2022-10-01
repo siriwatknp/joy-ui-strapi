@@ -3,7 +3,7 @@ import { Meta, Story } from '@storybook/react';
 import IconButton, { IconButtonProps } from '@mui/joy/IconButton';
 
 const meta: Meta = {
-  title: 'Strapi/IconButton',
+  title: 'Components/IconButton',
   component: IconButton,
   argTypes: {},
   parameters: {

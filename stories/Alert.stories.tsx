@@ -7,7 +7,7 @@ import Typography from '@mui/joy/Typography';
 import Link from '@mui/joy/Link';
 
 const meta: Meta = {
-  title: 'Strapi/Alert',
+  title: 'Components/Alert',
   component: Alert,
   argTypes: {},
   parameters: {

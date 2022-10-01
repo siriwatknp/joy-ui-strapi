@@ -1,9 +1,5 @@
 import { CssVarsProvider } from '@mui/joy/styles';
-import strapiTheme from '../src/strapi-theme';
-
-const THEMES = {
-  strapi: strapiTheme,
-};
+import theme from '../src/theme';
 
 // https://storybook.js.org/docs/react/writing-stories/parameters#global-parameters
 export const parameters = {
@@ -13,9 +9,9 @@ export const parameters = {
 
 export const decorators = [
   (Story, context) => {
-    const themeName = context.id.split('-')[0];
+    // const themeName = context.id.split('-')[0];
     return (
-      <CssVarsProvider theme={THEMES[themeName]}>
+      <CssVarsProvider theme={theme}>
         <Story />
       </CssVarsProvider>
     );

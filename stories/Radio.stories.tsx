@@ -5,7 +5,7 @@ import RadioGroup from '@mui/joy/RadioGroup';
 import Radio, { RadioProps } from '@mui/joy/Radio';
 
 const meta: Meta = {
-  title: 'Strapi/Radio',
+  title: 'Components/Radio',
   component: Radio,
   argTypes: {},
   parameters: {

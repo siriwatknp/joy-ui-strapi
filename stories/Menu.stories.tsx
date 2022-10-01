@@ -5,7 +5,7 @@ import MenuItem from '@mui/joy/MenuItem';
 import Link from '@mui/joy/Link';
 
 const meta: Meta = {
-  title: 'Strapi/Menu',
+  title: 'Components/Menu',
   component: Menu,
   argTypes: {},
   parameters: {

@@ -6,7 +6,7 @@ import FormHelperText from '@mui/joy/FormHelperText';
 import Textarea, { TextareaProps } from '@mui/joy/Textarea';
 
 const meta: Meta = {
-  title: 'Strapi/Textarea',
+  title: 'Components/Textarea',
   component: Textarea,
   argTypes: {
     minRows: {

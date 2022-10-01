@@ -8,7 +8,7 @@ import TabPanel from '@mui/joy/TabPanel';
 import Chip from '@mui/joy/Chip';
 
 const meta: Meta = {
-  title: 'Strapi/Tabs',
+  title: 'Components/Tabs',
   component: Tabs,
   argTypes: {},
   parameters: {

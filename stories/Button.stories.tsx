@@ -6,7 +6,7 @@ import CircularProgress from '@mui/joy/CircularProgress';
 import SvgIcon from '@mui/joy/SvgIcon';
 
 const meta: Meta = {
-  title: 'Strapi/Button',
+  title: 'Components/Button',
   component: Button,
   argTypes: {
     children: {

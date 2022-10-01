@@ -8,7 +8,7 @@ import Option from '@mui/joy/Option';
 import IconButton from '@mui/joy/IconButton';
 
 const meta: Meta = {
-  title: 'Strapi/Select',
+  title: 'Components/Select',
   component: Select,
   argTypes: {},
   parameters: {

@@ -35,16 +35,16 @@
     "singleQuote": true,
     "trailingComma": "es5"
   },
-  "name": "joy-ui-themes",
+  "name": "joy-ui-strapi",
   "author": "siriwatknp",
-  "module": "dist/joy-ui-themes.esm.js",
+  "module": "dist/joy-ui-strapi.esm.js",
   "size-limit": [
     {
-      "path": "dist/joy-ui-themes.cjs.production.min.js",
+      "path": "dist/joy-ui-strapi.cjs.production.min.js",
       "limit": "10 KB"
     },
     {
-      "path": "dist/joy-ui-themes.esm.js",
+      "path": "dist/joy-ui-strapi.esm.js",
       "limit": "10 KB"
     }
   ],

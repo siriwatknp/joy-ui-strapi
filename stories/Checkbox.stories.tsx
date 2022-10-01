@@ -4,7 +4,7 @@ import Box from '@mui/joy/Box';
 import Checkbox, { CheckboxProps } from '@mui/joy/Checkbox';
 
 const meta: Meta = {
-  title: 'Strapi/Checkbox',
+  title: 'Components/Checkbox',
   component: Checkbox,
   argTypes: {},
   parameters: {

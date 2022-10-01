@@ -5,7 +5,7 @@ import Chip, { ChipProps } from '@mui/joy/Chip';
 import ChipDelete from '@mui/joy/ChipDelete';
 
 const meta: Meta = {
-  title: 'Strapi/Chip',
+  title: 'Components/Chip',
   component: Chip,
   argTypes: {},
   parameters: {
